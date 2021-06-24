@@ -75,11 +75,27 @@ WSGI_APPLICATION = 'django_project.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
-
+"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
+"""
+#postgress login as root and folllow below commands to create user and database;
+# CREATE DATABASE django;
+# CREATE USER django WITH PASSWORD 'supersecret';
+# GRANT ALL PRIVILEGES ON DATABASE "django" to django;
+# python3 manage.py migrate # to make it work with postgresql
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'django',
+        'USER': 'django',
+        'PASSWORD': 'supersecret',
+        'HOST': 'localhost',
+        'PORT': ''
     }
 }
 
