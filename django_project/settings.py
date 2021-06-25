@@ -88,13 +88,24 @@ DATABASES = {
 # CREATE USER django WITH PASSWORD 'supersecret';
 # GRANT ALL PRIVILEGES ON DATABASE "django" to django;
 # python3 manage.py migrate # to make it work with postgresql
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'django', #os.environ['DB_NAME']
+#         'USER': 'django', #os.environ['DB_USER']
+#         'PASSWORD': 'supersecret', #os.environ["DB_PASSWD"]
+#         'HOST': 'localhost',#os.environ["HOST"]
+#         'PORT': ''
+#     }
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'django',
-        'USER': 'django',
-        'PASSWORD': 'supersecret',
-        'HOST': 'localhost',
+        'NAME': os.environ['DB_NAME'],
+        'USER': os.environ['DB_USER'],
+        'PASSWORD': os.environ["DB_PASSWD"],
+        'HOST': os.environ["HOST"],
         'PORT': ''
     }
 }
