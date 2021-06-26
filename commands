@@ -1,0 +1,9 @@
+docker run -p 8080:8080 --env-file dev.env new
+docker run -p 5432:5432 -e POSTGRES_PASSWORD=password postgres
+and then create database and user 
+use docker exec -it container_name bash
+su postgres 
+enter password 
+create DB and USER and grant permission
+while running in docker make sure to use the IP of db container the django app 
+

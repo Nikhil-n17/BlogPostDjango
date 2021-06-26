@@ -25,7 +25,7 @@ SECRET_KEY = 'exhlfdat&vfum(-34*c2uroi(($ww(yo$9pv98=e6p^gl(-eoj'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -94,7 +94,7 @@ DATABASES = {
 #         'NAME': 'django', #os.environ['DB_NAME']
 #         'USER': 'django', #os.environ['DB_USER']
 #         'PASSWORD': 'supersecret', #os.environ["DB_PASSWD"]
-#         'HOST': 'localhost',#os.environ["HOST"]
+#         'HOST': '172.17.0.2',#os.environ["HOST"]
 #         'PORT': ''
 #     }
 # }
@@ -104,9 +104,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': os.environ['DB_NAME'],
         'USER': os.environ['DB_USER'],
-        'PASSWORD': os.environ["DB_PASSWD"],
-        'HOST': os.environ["HOST"],
-        'PORT': ''
+        'PASSWORD': os.environ['DB_PASSWD'],
+        'HOST': os.environ['HOST'],
+        'PORT': 5432
     }
 }
 
