@@ -14,7 +14,8 @@ spec:
     spec:
      containers:
       - name: frontend-container
-        image: updatedimage
+        image: prashanthar/django-app
+        # imagePullPolicy: Never
         resources:
           requests:
             cpu: 100m
