@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+spec:
+ replicas: 1
+ selector:
+   matchLabels:
+     app: frontend-app
+ template:
+    metadata:
+     labels:
+      app: frontend-app
+    spec:
+     containers:
+      - name: frontend-container
+        image: updatedimage
+        resources:
+          requests:
+            cpu: 100m
+          limits:
+            cpu: 100m
+        env:
+        - name: HOST
+          valueFrom: 
+            configMapKeyRef:
+              name: app-configmap
+              key: HOST
+
+        - name: DB_USER
+          valueFrom: 
+            configMapKeyRef:
+              name: app-configmap
+              key: POSTGRES_USER
+
+        - name: DB_PASSWD
+          valueFrom: 
+            configMapKeyRef:
+              name: app-configmap
+              key: POSTGRES_PASSWORD
+            
+        - name: DB_NAME
+          valueFrom: 
+            configMapKeyRef:
+              name: app-configmap
+              key: DB_NAME
+        
+      
