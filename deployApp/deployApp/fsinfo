@@ -1,0 +1,19 @@
+
+{
+    "OwnerId": "218043339121",
+    "CreationToken": "0b625279-61ce-47c8-87aa-6b70e54bd73e",
+    "FileSystemId": "fs-923a91d2",
+    "FileSystemArn": "arn:aws:elasticfilesystem:ap-southeast-1:218043339121:file-system/fs-923a91d2",
+    "CreationTime": 1624945650.0,
+    "LifeCycleState": "creating",
+    "NumberOfMountTargets": 0,
+    "SizeInBytes": {
+        "Value": 0,
+        "ValueInIA": 0,
+        "ValueInStandard": 0
+    },
+    "PerformanceMode": "generalPurpose",
+    "Encrypted": false,
+    "ThroughputMode": "bursting",
+    "Tags": []
+}

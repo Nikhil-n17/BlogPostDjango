@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: db
+spec:
+ replicas: 1 
+ selector:
+   matchLabels:
+     app: db-app
+ template:
+    metadata:
+     labels:
+      app: db-app
+    spec:
+      containers:
+      - name: postgres
+        image: postgres:10.4
+        env:
+        - name: POSTGRES_USER
+          valueFrom: 
+            configMapKeyRef:
+              name: app-configmap
+              key: POSTGRES_USER
+
+        - name: POSTGRES_PASSWORD
+          valueFrom: 
+            configMapKeyRef:
+              name: app-configmap
+              key: POSTGRES_PASSWORD
+        - name: POSTGRES_DB
+          valueFrom:
+            configMapKeyRef:
+              name: app-configmap
+              key : DB_NAME
+        volumeMounts:
+        - name: postgres-storage
+          mountPath: /var/lib/postgresql/data/pgdata
+      volumes:
+        - name: postgres-storage
+          persistentVolumeClaim:
+            claimName: efs-storage-claim-new
+
+          
+              
